@@ -1,0 +1,21 @@
+<section id="offers" class="pt-4">
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="card text-center" routerLink="/offer/{{offer.id}}" *ngFor="let offer of offers">
+          <h3>
+            <div class="card-header">{{offer.companyName}}</div>
+          </h3>
+          <div class="card-body">
+            <h5 class="card-title">{{offer.title}}</h5>
+            <p class="card-text">{{offer.description}}</p>
+            <h5><span class="badge rounded-pill bg-info text-dark">Salary: {{offer.salary}}€ / month</span></h5>
+          </div>
+          <div class="card-footer">
+            {{offer.startDate}} to {{offer.endDate}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
