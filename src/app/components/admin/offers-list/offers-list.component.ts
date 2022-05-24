@@ -23,7 +23,15 @@ export class OffersListComponent implements OnInit {
     })
   }
 
-  onDeleteOffer() {
-    console.log('delete offer')
+  onDeleteOffer(offerId: string): void {
+    const confirmDelete = confirm('Are you sure?') // TODO: add modal for confirm delete
+    if (confirmDelete) {
+      this.dataApi.deleteOffer(offerId)
+    }
+  }
+
+  onPreUpdateOffer(offer: OfferInterface): void {
+    this.dataApi.selectedOffer = Object.assign({}, offer)
+    console.log(offer)
   }
 }

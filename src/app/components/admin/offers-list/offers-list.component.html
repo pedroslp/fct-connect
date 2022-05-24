@@ -1,17 +1,23 @@
 <section id="offer" class="pt-4">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOfferModal">Add
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addOfferModal">Add
         offer</button>
     <div class="container">
         <div class="row mt-5 d-flex justify-content-center">
             <div class="col-xs-7 col-sm-7 col-md-7">
                 <div class="card" *ngFor="let offer of offers">
                     <h3>
-                        <div class="card-header">{{offer.companyName}}</div>
+                        <div class="card-header">
+                            {{offer.companyName}}
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOfferModal"
+                                (click)="onPreUpdateOffer(offer)">Update</button>
+                            <button class="btn btn-danger" (click)="onDeleteOffer(offer.id)">Delete</button>
+                        </div>
                     </h3>
                     <div class="card-body">
                         <h5 class="card-title">{{offer.title}}</h5>
                         <p class="card-text">{{offer.description}}</p>
-                        <h5><span class="badge rounded-pill bg-info text-dark">Salary: {{offer.salary}}€/month</span>
+                        <h5><span class="badge rounded-pill bg-info text-dark">Salary: {{offer.salary}}€/month</span> //
+                            TODO: add salary type
                         </h5>
                     </div>
                     <div class="card-footer text-center text-muted">

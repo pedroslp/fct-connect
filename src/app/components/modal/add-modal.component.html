@@ -1,26 +1,68 @@
 <div class="modal fade modal-dialog modal-dialog-centered" id="addOfferModal" tabindex="-1"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  aria-labelledby="addOfferModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <h5 class="modal-title" id="addOfferModal">
+          {{ !this.dataApi.selectedOffer.id ? 'New offer' : 'Update offer' }}
+        </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form #offerForm="ngForm" (ngSubmit)="onSaveOffer(offerForm)">
+          <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedOffer.id">
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <label for="companyName" class="col-form-label">Company Name</label>
+            <input type="text" class="form-control" name="companyName"
+              [(ngModel)]="this.dataApi.selectedOffer.companyName">
           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="title" class="col-form-label">Offer Title</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="this.dataApi.selectedOffer.title">
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="startDate" class="col-form-label">Start Date</label>
+                <input type="date" class="form-control" name="startDate"
+                  [(ngModel)]="this.dataApi.selectedOffer.startDate">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="endDate" class="col-form-label">End Date</label>
+                <input type="date" class="form-control" name="endDate" [(ngModel)]="this.dataApi.selectedOffer.endDate">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="salary" class="col-form-label">Salary</label>
+                <input type="number" class="form-control" name="salary" placeholder="1.200€"
+                  [(ngModel)]="this.dataApi.selectedOffer.salary">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="salaryType" class="col-form-label">Salary Type</label>
+                <select name="salaryType" class="form-select" [(ngModel)]="this.dataApi.selectedOffer.salaryType">
+                  <option value="Net">Net</option>
+                  <option value="Gross">Gross</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="col-form-label">Description</label>
+            <textarea class="form-control" rows="7" name="description"
+              [(ngModel)]="this.dataApi.selectedOffer.description"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" #closeModal class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save offer</button>
           </div>
         </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
       </div>
     </div>
   </div>

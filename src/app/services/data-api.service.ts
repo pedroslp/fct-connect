@@ -12,6 +12,9 @@ export class DataApiService {
   private offers: Observable<OfferInterface[]>
   private offerDoc!: AngularFirestoreDocument<OfferInterface>
   private offer!: Observable<OfferInterface | any>
+  public selectedOffer : OfferInterface = {
+    id: null,
+  }
 
   constructor(private afs: AngularFirestore) {
     this.offersCollection = afs.collection<OfferInterface>('offers')
