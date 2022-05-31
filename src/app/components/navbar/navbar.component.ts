@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { AngularFireAuth } from '@angular/fire/compat/auth'
-import { AuthService } from 'src/app/services/auth.service'
+import { AuthService } from '../../services/auth.service'
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +9,10 @@ import { AuthService } from 'src/app/services/auth.service'
 export class NavbarComponent implements OnInit {
   public app_name: string = 'Fct-Connect'
   public isLogged: boolean = true
+  public isCompany: any = null
+  public userUid: string = ''
 
-  constructor(private authService: AuthService, private afsAuth: AngularFireAuth) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.getCurrentUser()
@@ -20,10 +21,12 @@ export class NavbarComponent implements OnInit {
   getCurrentUser() {
     this.authService.isAuthenticated().subscribe(auth => {
       if (auth) {
-        // console.log('user logged')
         this.isLogged = true
+        this.userUid = auth.uid
+        this.authService.isCompany(this.userUid).subscribe(userRole => {
+          this.isCompany = Object.assign({}, userRole?.roles.company).hasOwnProperty('company')
+        })
       } else {
-        // console.log('user not logged')
         this.isLogged = false
       }
     })

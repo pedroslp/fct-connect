@@ -37,6 +37,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginRedirect(): void {
-    this.router.navigate(['admin/jobs-lists'])
+    this.router.navigate(['/'])
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { DataApiService } from '../../services/data-api.service'
 import { OfferInterface } from '../../models/offer'
-import {ActivatedRoute, Params } from '@angular/router'
+import { ActivatedRoute, Params } from '@angular/router'
 
 @Component({
   selector: 'app-offer-details',
@@ -10,7 +10,7 @@ import {ActivatedRoute, Params } from '@angular/router'
 })
 export class OfferDetailsComponent implements OnInit {
   public offer: OfferInterface = {}
-    
+
   constructor(private dataApi: DataApiService, private route: ActivatedRoute) { }
 
   ngOnInit() {

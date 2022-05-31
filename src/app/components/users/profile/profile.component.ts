@@ -8,22 +8,22 @@ import { UserInterface } from '../../../models/user'
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  user: UserInterface = {
+    name: '',
+    email: '',
+    roles: {}
+  }
 
   constructor(private authService: AuthService) { }
-
-  user: UserInterface = {
-    name: '' ,
-    email: '',
-  }
 
   public providerId: string = 'null'
 
   ngOnInit() {
     this.authService.isAuthenticated().subscribe(user => {
-      if(user) {
+      if (user) {
         this.user.name = user.displayName!
         this.user.email = user.email!
-        console.log(user)
+        this.providerId = user.providerData[0]!.providerId
       }
     })
   }

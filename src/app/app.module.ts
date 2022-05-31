@@ -9,7 +9,6 @@ import { HomeComponent } from './components/home/home.component'
 import { HeroComponent } from './components/hero/hero.component'
 import { AddModalComponent } from './components/modal/add-modal.component'
 import { NavbarComponent } from './components/navbar/navbar.component'
-import { OffersComponent } from './components/offers/offers.component'
 import { LoginComponent } from './components/users/login/login.component'
 import { ProfileComponent } from './components/users/profile/profile.component'
 import { RegisterComponent } from './components/users/register/register.component'
@@ -31,7 +30,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore'
     HeroComponent,
     AddModalComponent,
     NavbarComponent,
-    OffersComponent,
     LoginComponent,
     ProfileComponent,
     RegisterComponent,

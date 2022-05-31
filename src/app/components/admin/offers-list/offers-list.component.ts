@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { DataApiService } from '../../../services/data-api.service'
 import { OfferInterface } from '../../../models/offer'
-import { NgForm } from '@angular/forms'
+import { AuthService } from '../../../services/auth.service'
 
 @Component({
   selector: 'app-offers-list',
@@ -10,8 +10,9 @@ import { NgForm } from '@angular/forms'
 })
 export class OffersListComponent implements OnInit {
   public offers: OfferInterface | any = []
+  public userUid: string = ''
 
-  constructor(private dataApi: DataApiService) { }
+  constructor(private dataApi: DataApiService, private authService: AuthService) { }
 
   ngOnInit() {
     this.getOffersList()

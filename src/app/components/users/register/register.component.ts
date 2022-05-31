@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { AuthService } from '../../../services/auth.service'
-import { UserInterface } from '../../../models/user'
 
 @Component({
   selector: 'app-register',
@@ -14,12 +13,13 @@ export class RegisterComponent implements OnInit {
   public name: string = ''
   public email: string = ''
   public password: string = ''
+  // public role: boolean = false
 
   ngOnInit() { }
 
   onRegisterUser() {
     this.authService.registerUser(this.email, this.password)
-      .then((res) => {
+      .then((res) => {        
         this.authService.isAuthenticated().subscribe(user => {
           if (user) {
             user.updateProfile({
@@ -42,6 +42,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onLoginRedirect(): void {
-    this.router.navigate(['admin/jobs-lists'])
+    this.router.navigate(['/'])
   }
 }
