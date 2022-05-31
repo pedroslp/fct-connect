@@ -23,12 +23,9 @@ export class IsCompanyGuard implements CanActivate {
           this.router.navigate(['/user/login'])
         } else {
           this.authService.isAuthenticated().subscribe(auth => {
-            console.log('auth', auth)
-            this.userUid = auth!.uid
-            console.log(this.userUid)
+            this.userUid = auth?.uid!
             this.authService.isCompany(this.userUid).subscribe(company => {
-              console.log('company', company!.roles.company)
-              if (!company!.roles.company) {
+              if (!company?.roles.company) {
                 this.router.navigate(['/'])
               }
             })

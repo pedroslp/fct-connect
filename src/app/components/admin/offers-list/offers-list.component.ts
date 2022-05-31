@@ -33,6 +33,5 @@ export class OffersListComponent implements OnInit {
 
   onPreUpdateOffer(offer: OfferInterface): void {
     this.dataApi.selectedOffer = Object.assign({}, offer)
-    console.log(offer)
   }
 }

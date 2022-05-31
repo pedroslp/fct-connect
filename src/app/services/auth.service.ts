@@ -55,7 +55,7 @@ export class AuthService {
     return userRef.set(data, { merge: true })
   }
 
-  isCompany(userId) {
+  isCompany(userId: any) {
     return this.afs.doc<UserInterface>(`users/${userId}`).valueChanges()
   }
 }

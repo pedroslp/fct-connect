@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { ConnectableObservable } from 'rxjs'
 import { AuthService } from '../../services/auth.service'
 
 @Component({
@@ -24,7 +25,7 @@ export class NavbarComponent implements OnInit {
         this.isLogged = true
         this.userUid = auth.uid
         this.authService.isCompany(this.userUid).subscribe(userRole => {
-          this.isCompany = Object.assign({}, userRole?.roles.company).hasOwnProperty('company')
+          this.isCompany = Object.assign({}, userRole!.roles).company
         })
       } else {
         this.isLogged = false
