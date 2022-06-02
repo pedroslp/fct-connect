@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { ConnectableObservable } from 'rxjs'
 import { AuthService } from '../../services/auth.service'
 
 @Component({

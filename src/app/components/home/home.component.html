@@ -9,7 +9,7 @@
           <div class="card-body">
             <h5 class="card-title">{{offer.title}}</h5>
             <p class="card-text">{{offer.description}}</p>
-            <h5><span class="badge rounded-pill bg-info text-dark">Salary: {{offer.salary}}€ / month</span></h5> // TODO: add salary type
+            <h5><span class="badge rounded-pill bg-info text-dark">Salary: {{offer.salary}}€ {{offer.salaryType}}</span></h5>
           </div>
           <div class="card-footer">
             {{offer.startDate}} to {{offer.endDate}}

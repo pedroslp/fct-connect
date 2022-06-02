@@ -11,6 +11,7 @@ import { AuthService } from '../../../services/auth.service'
 export class OffersListComponent implements OnInit {
   public offers: OfferInterface | any = []
   public userUid: string = ''
+  public companyName: string = ''
 
   constructor(private dataApi: DataApiService, private authService: AuthService) { }
 
@@ -21,6 +22,20 @@ export class OffersListComponent implements OnInit {
   getOffersList() {
     this.dataApi.getAllOffers().subscribe(offers => {
       this.offers = offers
+    })
+    this.getDataUser()
+  }
+
+  getDataUser() {
+    this._getUidAndCompany()
+  }
+
+  _getUidAndCompany() {
+    this.authService.isAuthenticated().subscribe(auth => {
+      if (auth) {
+        this.userUid = auth.uid
+        this.companyName = auth.displayName!
+      }
     })
   }
 

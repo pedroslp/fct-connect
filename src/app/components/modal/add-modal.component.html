@@ -11,10 +11,10 @@
       <div class="modal-body">
         <form #offerForm="ngForm" (ngSubmit)="onSaveOffer(offerForm)">
           <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedOffer.id">
+          <input type="hidden" name="userUid" [value]="userUid">
           <div class="mb-3">
             <label for="companyName" class="col-form-label">Company Name</label>
-            <input type="text" class="form-control" name="companyName"
-              [(ngModel)]="this.dataApi.selectedOffer.companyName">
+            <input type="text" class="form-control" name="companyName" [value]="companyName" readonly>
           </div>
           <div class="mb-3">
             <label for="title" class="col-form-label">Offer Title</label>
@@ -47,8 +47,10 @@
               <div class="mb-3">
                 <label for="salaryType" class="col-form-label">Salary Type</label>
                 <select name="salaryType" class="form-select" [(ngModel)]="this.dataApi.selectedOffer.salaryType">
-                  <option value="Net">Net</option>
-                  <option value="Gross">Gross</option>
+                  <option value="Net/month">Net/month</option>
+                  <option value="Gross/month">Gross/month</option>
+                  <option value="Net/year">Net/year</option>
+                  <option value="Gross/year">Gross/year</option>
                 </select>
               </div>
             </div>

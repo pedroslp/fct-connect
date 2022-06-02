@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,19 +10,24 @@ import { AngularFireAuth } from '@angular/fire/compat/auth'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  public email: string = ''
+  public password: string = ''
+  public isError = false
 
   constructor(public afsAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
 
-  public email: string = '';
-  public password: string = '';
-
   ngOnInit() { }
 
-  onLogin(): void {
-    this.authService.loginEmailUser(this.email, this.password)
-      .then((res) => {
-        this.onLoginRedirect()
-      }).catch(err => console.log('err', err.message))
+  onLogin(form: NgForm): void {
+    if (form.valid) {
+      this.authService.loginEmailUser(this.email, this.password)
+        .then((res) => {
+          this.onLoginRedirect()
+        })
+        .catch((err) => this.validateForm())
+    } else {
+      this.validateForm()
+    }
   }
 
   onLoginGoogle(): void {
@@ -38,5 +44,12 @@ export class LoginComponent implements OnInit {
 
   onLoginRedirect(): void {
     this.router.navigate(['/'])
+  }
+
+  validateForm(): void {
+    this.isError = true
+    setTimeout(() => {
+      this.isError = false
+    }, 3000)
   }
 }
