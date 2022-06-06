@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, Input } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { map, switchMap } from 'rxjs/operators'
 import firebase from 'firebase/compat/app'
@@ -9,13 +9,16 @@ import { UserInterface } from '../models/user'
   providedIn: 'root',
 })
 export class AuthService {
+  private company: boolean = false
+
   constructor(private afsAuth: AngularFireAuth, private afs: AngularFirestore) { }
 
-  registerUser(email: string, password: string) {
+  registerUser(email: string, password: string, company: boolean) {
     return new Promise((resolve, reject) => {
       this.afsAuth.createUserWithEmailAndPassword(email, password).
         then(userData => {
           resolve(userData)
+          this.company = company
           this.updateUserData(userData.user)
         }).catch(err => reject(err))
     })
@@ -35,6 +38,15 @@ export class AuthService {
       .then(credentials => this.updateUserData(credentials.user))
   }
 
+  resetPassword(email: string) {
+    return new Promise((resolve, reject) => {
+      this.afsAuth.sendPasswordResetEmail(email).then(
+        (userData) => resolve(userData),
+        (err) => reject(err)
+      )
+    })
+  }
+
   logoutUser() {
     return this.afsAuth.signOut()
   }
@@ -49,7 +61,7 @@ export class AuthService {
       id: user.uid,
       email: user.email,
       roles: {
-        company: false
+        company: this.company
       }
     }
     return userRef.set(data, { merge: true })

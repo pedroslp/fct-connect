@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service'
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public app_name: string = 'Fct-Connect'
+  public app_name: string = 'Fct Connect'
   public isLogged: boolean = true
   public isCompany: any = null
   public userUid: string = ''
@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit {
         })
       } else {
         this.isLogged = false
+        this.isCompany = false
       }
     })
   }

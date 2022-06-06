@@ -6,36 +6,42 @@
         <div class="card_register">
           <div class="card">
             <div class="card-body text-center">
-              <form #formRegister="ngForm" (ngSubmit)="onRegisterUser()">
+              <form #formRegister="ngForm" (ngSubmit)="onRegisterUser(formRegister)">
                 <h1 class="h3 mb-3 font-weight-normal">Register</h1>
-                <div class="alert alert-danger" role="alert">
-                  <!-- {{msgError}} -->
+                <div class="alert alert-danger" role="alert" *ngIf="isError">
+                  Something is wrong!
                 </div>
                 <div class="form-group">
-                  <input type="name" name="name" class="form-control" placeholder="Name" [(ngModel)]="name" required>
+                  <input type="name" #nameForm="ngModel" name="name" class="form-control" placeholder="Name"
+                    [(ngModel)]="name" required minlength="1">
                 </div>
-                <div class="alert alert-danger" role="alert">
-                  <div>Name is required</div>
+                <div *ngIf="nameForm.touched && !nameForm.valid">
+                  <div class="alert alert-danger" role="alert" *ngIf="nameForm.errors?.['required']">
+                    Name is required
+                  </div>
                 </div>
-                <!-- <div class="form-check form-switch">
+                <div class="form-check form-switch">
                   <label class="form-check-label" for="switchUser">Are you a company?</label>
-                  <input class="form-check-input" type="checkbox" role="switch" name="switchUser" [(ngModel)]="role" required>
-                </div> -->
-                <div class="form-group">
-                  <input type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="email"
-                    required>
-                </div>
-                <div class="alert alert-danger" role="alert">
-                  <div>Email is required</div>
-                  <div>Email must be at least 8 characters</div>
+                  <input class="form-check-input" type="checkbox" role="switch" name="switchUser" [(ngModel)]="company">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="password" class="form-control" placeholder="Password"
-                    [(ngModel)]="password" required>
+                  <input type="email" #emailForm="ngModel" name="email" class="form-control" placeholder="Email"
+                    [(ngModel)]="email" required>
                 </div>
-                <div class="alert alert-danger" role="alert">
-                  <div>Password is required</div>
-                  <div>Password must be at least 6 characters</div>
+                <div *ngIf="emailForm.touched && !emailForm.valid">
+                  <div class="alert alert-danger" role="alert" *ngIf="emailForm.errors?.['required']">
+                    Email is required
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="password" #passForm="ngModel" name="password" class="form-control" placeholder="Password"
+                    [(ngModel)]="password" required minlength="6">
+                </div>
+                <div *ngIf="passForm.touched && !passForm.valid">
+                  <div class="alert alert-danger" role="alert" *ngIf="emailForm.errors?.['required']">
+                    <div *ngIf="passForm.errors?.['required']">Password is required</div>
+                    <div *ngIf="passForm.errors?.['minlength']">Password must be at least 6 characters</div>
+                  </div>
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
                 <div class="form-group">
@@ -43,7 +49,7 @@
                 </div>
                 <div class="form-group">
                   <a class="btn btn-block btn-social btn-google" (click)="onRegisterGoogle()">
-                    <span class="fa fa-google"></span>
+                    <i class="fa-brands fa-google"></i>
                     Google
                   </a>
                 </div>

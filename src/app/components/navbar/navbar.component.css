@@ -1,0 +1,19 @@
+.fa-arrow-right-to-bracket,
+.fa-user,
+.fa-arrow-right-from-bracket,
+.fa-list {
+  margin-right: 8px;
+}
+
+a.nav-item.nav-link.btn.btn-primary {
+  color: #fff;
+}
+
+a.profile {
+    margin-right: 20px;
+}
+
+.nav-link,
+.navbar-brand {
+  color: #000000;
+}

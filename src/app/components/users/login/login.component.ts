@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../services/auth.service'
 import { AngularFireAuth } from '@angular/fire/compat/auth'
-import { NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-login',

@@ -1,3 +1,7 @@
 .form-control.login-user {
   border: 0 solid #fff !important;
 }
+
+.fa-arrow-right-to-bracket {
+  margin-right: 10px;
+}

@@ -22,7 +22,6 @@ export class AddModalComponent implements OnInit {
       if (offerForm.value.title != null && offerForm.value.startDate != null && offerForm.value.description != null && offerForm.value.salary != null) {
         offerForm.value.userUid = this.userUid
         offerForm.value.companyName = this.companyName
-        console.log(offerForm.value.id)
         this.dataApi.addOffer(offerForm.value)
       }
     } else {
