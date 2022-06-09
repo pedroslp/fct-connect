@@ -2,6 +2,7 @@ import { NgForm } from '@angular/forms'
 import { Component, OnInit } from '@angular/core'
 import { AuthService } from '../../../services/auth.service'
 import { Router } from '@angular/router'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,17 +12,19 @@ import { Router } from '@angular/router'
 export class ForgotPasswordComponent implements OnInit {
   public email: string = ''
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private toast: ToastrService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   onResetPassword(form: NgForm) {
     this.authService.resetPassword(form.value.email)
       .then((res) => {
-        window.alert('Please check your email for a password reset link')
+        this.toast.success('Please check your email for a password reset link.', 'Success')
         this.onResetPasswordRedirect()
-      }).catch(err => console.log('err', err.message))
+      }).catch(err => {
+        this.toast.error('Missing email', 'Error')
+        console.log('err', err.message)
+      })
   }
 
   onResetPasswordRedirect(): void {

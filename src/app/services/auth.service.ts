@@ -33,9 +33,12 @@ export class AuthService {
     })
   }
 
-  loginGoogleUser() {
+  loginGoogleUser(company?: boolean) {
     return this.afsAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then(credentials => this.updateUserData(credentials.user))
+      .then(credentials => {
+        this.company = !company
+        this.updateUserData(credentials.user)
+      })
   }
 
   resetPassword(email: string) {

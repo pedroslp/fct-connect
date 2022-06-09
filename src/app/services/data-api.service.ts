@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { map } from 'rxjs/operators'
 import { Observable } from 'rxjs/internal/Observable'
 import { OfferInterface } from '../models/offer'
+import { ToastrService } from 'ngx-toastr'
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class DataApiService {
   private offers: Observable<OfferInterface[]>
   private offerDoc!: AngularFirestoreDocument<OfferInterface>
   private offer!: Observable<OfferInterface | any>
-  public selectedOffer : OfferInterface = {
+  public selectedOffer: OfferInterface = {
     id: null,
   }
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore, private toast: ToastrService) {
     this.offersCollection = afs.collection<OfferInterface>('offers')
     this.offers = this.offersCollection.valueChanges()
   }
@@ -54,7 +55,12 @@ export class DataApiService {
   }
 
   deleteOffer(offerId: string): void {
-    this.offerDoc = this.afs.doc<OfferInterface>(`offers/${offerId}`)
-    this.offerDoc.delete()
+    try {
+      this.offerDoc = this.afs.doc<OfferInterface>(`offers/${offerId}`)
+      this.offerDoc.delete()
+      this.toast.success('Offer deleted successfully', 'Success')
+    } catch (error) {
+      this.toast.error('Error deleting offer', 'Error')
+    }
   }
 }

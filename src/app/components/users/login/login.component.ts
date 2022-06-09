@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service'
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { NgForm } from '@angular/forms'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   public password: string = ''
   public isError = false
 
-  constructor(public afsAuth: AngularFireAuth, private router: Router, private authService: AuthService) { }
+  constructor(public afsAuth: AngularFireAuth, private router: Router, private authService: AuthService, private toast: ToastrService) { }
 
   ngOnInit() { }
 
@@ -34,8 +35,10 @@ export class LoginComponent implements OnInit {
     this.authService.loginGoogleUser()
       .then((res) => {
         this.onLoginRedirect()
-        console.log(res)
-      }).catch(err => console.log('err', err.message))
+      }).catch(err => {
+        this.toast.error('Something went wrong', 'Error')
+        console.log('err', err.message)
+      })
   }
 
   onLogout() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { NgForm } from '@angular/forms'
 import { Router } from '@angular/router'
 import { AuthService } from '../../../services/auth.service'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   public company: boolean = false
   public isError = false
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private toast: ToastrService) { }
 
   ngOnInit() { }
 
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
           this.onLoginRedirect()
         })
         .catch((err) => {
+          this.isError = true
           console.log('err', err.message)
         })
     } else {
@@ -40,11 +42,15 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  onRegisterGoogle(): void {
-    this.authService.loginGoogleUser()
+  onRegisterGoogle() {
+    this.authService.loginGoogleUser(this.company)
       .then((res) => {
         this.onLoginRedirect()
-      }).catch(err => console.log('err', err.message))
+      }).catch(err => {
+        this.isError = true
+        this.toast.error('Something went wrong', 'Error')
+        console.log('err', err.message)
+      })
   }
 
   onLoginRedirect(): void {
