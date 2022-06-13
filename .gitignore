@@ -38,7 +38,7 @@ testem.log
 /typings
 
 # Enviroment variables
-/src/enviroments
+/src/environments
 
 # System files
 .DS_Store
