@@ -1,15 +1,16 @@
 <div class="row pt-4 justify-content-center">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
-    <div class="card text-center mb-4" routerLink="/offer/{{offer.id}}" *ngFor="let offer of offers">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-7">
+    <div class="card mb-4" routerLink="/offer/{{offer.id}}" *ngFor="let offer of offers">
       <h3>
-        <div class="card-header">{{offer.companyName}}</div>
+        <div class="card-header text-center">{{offer.companyName}}</div>
       </h3>
       <div class="card-body">
-        <h5 class="card-title">{{offer.title}}</h5>
+        <h5 class="card-title mb-4">{{offer.title}}</h5>
+        <span class="h6">Description:</span>
         <p class="card-text">{{offer.description}}</p>
       </div>
       <div class="card-footer">
-        {{offer.startDate}} to {{offer.endDate}}
+        Click for more details...
       </div>
     </div>
   </div>

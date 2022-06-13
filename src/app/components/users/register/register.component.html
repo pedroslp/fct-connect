@@ -1,5 +1,5 @@
-<section id="register" class="mb-5 mt-5">
-  <div class="card col-xs-12 col-sm-6 col-md-4 mx-auto">
+<section id="register" class="mb-5 mt-5 col-xs-7 col-sm-10 col-md-7 col-lg-5 col-xl-4 mx-auto">
+  <div class="card">
     <div class="card-body text-center">
       <h1 class="h3 mb-3 font-weight-normal">Register</h1>
       <form #formRegister="ngForm" (ngSubmit)="onRegisterUser(formRegister)">
@@ -16,8 +16,10 @@
           </div>
         </div>
         <div class="form-switch mb-3">
-          <label class="form-check-label" for="switchUser"><input class="form-check-input" type="checkbox" role="switch"
-              name="switchUser" placeholder="Hola" [(ngModel)]="company">Are you a company?</label>
+          <label class="form-check-label" for="switchUser">
+            <input class="form-check-input" type="checkbox" role="switch" name="switchUser" placeholder="Hola"
+              [(ngModel)]="company">Are you a company?
+          </label>
         </div>
         <div class="mb-3">
           <input type="email" #emailForm="ngModel" name="email" class="form-control" placeholder="Email"
@@ -28,7 +30,7 @@
             Email is required
           </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <input type="password" #passForm="ngModel" name="password" class="form-control" placeholder="Password"
             [(ngModel)]="password" required minlength="6">
         </div>
@@ -38,14 +40,14 @@
             <div *ngIf="passForm.errors?.['minlength']">Password must be at least 6 characters</div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block mb-1">Register</button>
         <div class="mb-2">
           <a routerLink="/user/login" class="form-control login-user">Do you have account?</a>
         </div>
+        <button type="submit" class="btn btn-primary btn-block mb-3 col-12">Register</button>
         <div>
-          <a class="btn btn-block btn-social btn-google" (click)="onRegisterGoogle()">
-            <i class="fa-brands fa-google"></i>
-            Google
+          <a class="btn btn-block btn-social btn-google col-12" (click)="onRegisterGoogle()">
+            <i class="fa-brands fa-google mx-1"></i>
+            Continue with Google
           </a>
         </div>
       </form>

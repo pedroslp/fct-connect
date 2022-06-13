@@ -15,5 +15,11 @@
 }
 
 .btn-google {
-  background-color: #d95140;
+  background-color: #dd4b39;
+  color: white;
+}
+
+.btn-google:hover {
+  background-color: #bd4232;
+  color: white;
 }

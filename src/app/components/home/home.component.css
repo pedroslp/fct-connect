@@ -7,3 +7,11 @@
   background: #f6f6f6;
   transition: 0.3s;
 }
+
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr'
 })
 export class ForgotPasswordComponent implements OnInit {
   public email: string = ''
+  public isError = false
 
   constructor(private authService: AuthService, private router: Router, private toast: ToastrService) { }
 
@@ -22,8 +23,7 @@ export class ForgotPasswordComponent implements OnInit {
         this.toast.success('Please check your email for a password reset link.', 'Success')
         this.onResetPasswordRedirect()
       }).catch(err => {
-        this.toast.error('Missing email', 'Error')
-        console.log('err', err.message)
+        this.toast.error('Email not found', 'Error')
       })
   }
 

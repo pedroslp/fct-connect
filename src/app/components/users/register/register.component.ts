@@ -35,7 +35,6 @@ export class RegisterComponent implements OnInit {
         })
         .catch((err) => {
           this.isError = true
-          console.log('err', err.message)
         })
     } else {
       this.validateForm()
@@ -49,7 +48,6 @@ export class RegisterComponent implements OnInit {
       }).catch(err => {
         this.isError = true
         this.toast.error('Something went wrong', 'Error')
-        console.log('err', err.message)
       })
   }
 

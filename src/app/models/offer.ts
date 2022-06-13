@@ -6,6 +6,7 @@ export interface OfferInterface {
     startDate?: string
     endDate?: string
     description?: string
+    contact?: string
     salary?: string
     salaryType?: string
 }

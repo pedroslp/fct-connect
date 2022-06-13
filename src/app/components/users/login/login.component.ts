@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
         this.onLoginRedirect()
       }).catch(err => {
         this.toast.error('Something went wrong', 'Error')
-        console.log('err', err.message)
       })
   }
 

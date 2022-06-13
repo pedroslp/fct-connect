@@ -39,7 +39,7 @@ export class OffersListComponent implements OnInit {
   }
 
   onDeleteOffer(offerId: string): void {
-    const confirmDelete = confirm('Are you sure?') // TODO: add modal for confirm delete
+    const confirmDelete = confirm('Are you sure you want to delete this offer?')
     if (confirmDelete) {
       this.dataApi.deleteOffer(offerId)
     }

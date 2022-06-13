@@ -16,7 +16,7 @@
         <a class="nav-item nav-link" routerLink="/user/register" *ngIf="!isLogged"><i class="fa-solid fa-address-card"></i>Register</a>
         <a href="#" class="nav-item nav-link profile" routerLink="/user/profile" *ngIf="isLogged"><i
             class="fa-solid fa-user"></i>Profile</a>
-        <a href="#" class="nav-item nav-link btn btn-primary" (click)="onLogout()" *ngIf="isLogged"><i
+        <a href="#" class="nav-item nav-link btn btn-primary btn-logout" (click)="onLogout()" *ngIf="isLogged"><i
             class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
       </div>
     </div>

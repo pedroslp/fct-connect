@@ -1,14 +1,14 @@
-a.nav-item.nav-link.btn.btn-primary {
-  color: #fff;
-}
-
 a.profile {
   margin-right: 20px;
 }
 
-.nav-link,
+.navbar-light .navbar-nav .nav-link,
 .navbar-brand {
   color: #000000;
+}
+
+a.nav-item.nav-link.btn.btn-primary.btn-logout {
+  color: #fff;
 }
 
 .container-fluid {

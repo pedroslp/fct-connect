@@ -35,7 +35,6 @@ export class AddModalComponent implements OnInit {
         })
       }
     } else {
-      console.log('id', offerForm.value.id)
       try {
         this.dataApi.updateOffer(offerForm.value)
         this.toast.success('Offer updated successfully', 'Success')

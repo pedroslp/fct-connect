@@ -1,5 +1,5 @@
-<section id="login" class="mb-5 mt-5">
-  <div class="card col-xs-12 col-sm-6 col-md-4 mx-auto">
+<section id="login" class="mb-5 mt-5 col-xs-7 col-sm-10 col-md-7 col-lg-5 col-xl-4 mx-auto">
+  <div class="card">
     <div class="card-body text-center">
       <h1 class="h3 mb-3 font-weight-normal">Login</h1>
       <form #formLogin="ngForm" (submit)="onLogin(formLogin)">
@@ -15,7 +15,7 @@
             Email is required
           </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <input type="password" #passForm="ngModel" id="password" name="password" class="form-control" placeholder="Password"
             [(ngModel)]="password" required />
         </div>
@@ -24,17 +24,17 @@
             Password is required
           </div>
         </div>
-        <button type="submit" class="btn btn-primary mb-1">Login</button>
         <div class="mb-0">
           <a routerLink="/user/forgot-password" class="form-control login-user">Are you forgot the password?</a>
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
           <a routerLink="/user/register" class="form-control login-user">Are you new?</a>
         </div>
+        <button type="submit" class="btn btn-primary mb-3 col-12">Login</button>
         <div>
-          <a class="btn btn-block btn-social btn-google" (click)="onLoginGoogle()">
-            <i class="fa-brands fa-google"></i>
-            Google
+          <a class="btn btn-block btn-social btn-google col-12" (click)="onLoginGoogle()">
+            <i class="fa-brands fa-google mx-1"></i>
+            Log in with Google
           </a>
         </div>
       </form>
