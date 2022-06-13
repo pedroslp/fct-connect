@@ -18,12 +18,13 @@ export class AddModalComponent implements OnInit {
   }
 
   onSaveOffer(offerForm: NgForm): void {
-    if (offerForm.value.id == undefined || offerForm.value.id == null || offerForm.value.id == '') {
+    if (offerForm.value.id === undefined || offerForm.value.id === null || offerForm.value.id === '') {
       try {
         if (offerForm.value.title != null && offerForm.value.startDate != null && offerForm.value.description != null && offerForm.value.salary != null) {
           offerForm.value.userUid = this.userUid
           offerForm.value.companyName = this.companyName
           this.dataApi.addOffer(offerForm.value)
+          offerForm.resetForm()
         }
         this.toast.success('Offer added successfully', 'Success', {
           toastClass: 'toast'
@@ -34,15 +35,16 @@ export class AddModalComponent implements OnInit {
         })
       }
     } else {
+      console.log('id', offerForm.value.id)
       try {
         this.dataApi.updateOffer(offerForm.value)
         this.toast.success('Offer updated successfully', 'Success')
+        offerForm.resetForm()
       }
       catch (error) {
         this.toast.error('Error updating offer', 'Error')
       }
     }
-    offerForm.resetForm()
     this.closeModal.nativeElement.click()
   }
 }

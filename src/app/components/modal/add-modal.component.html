@@ -9,8 +9,8 @@
       </div>
       <div class="modal-body">
         <form #offerForm="ngForm" (ngSubmit)="onSaveOffer(offerForm)">
-          <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedOffer.id">
-          <input type="hidden" name="userUid" [value]="userUid">
+          <input  name="id" [(ngModel)]="this.dataApi.selectedOffer.id">
+          <input  name="userUid" [value]="userUid">
           <div class="mb-3">
             <label for="companyName" class="col-form-label">Company Name</label>
             <input type="text" class="form-control" name="companyName" [value]="companyName" readonly>
