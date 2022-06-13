@@ -1,19 +1,18 @@
 <section id="offer" class="pt-4">
-  <div class="container">
-    <div class="row mt-5 d-flex justify-content-center">
-      <div class="col-xs-7 col-sm-7 col-md-7">
-        <div class="card">
-          <h3>
-            <div class="card-header">{{offer.companyName}}</div>
-          </h3>
-          <div class="card-body">
-            <h5 class="card-title">{{offer.title}}</h5>
-            <p class="card-text">{{offer.description}}</p>
-            <h5><span class="badge rounded-pill bg-info text-dark">Salary: {{offer.salary}}€ {{offer.salaryType}}</span></h5>
-          </div>
-          <div class="card-footer text-center text-muted">
-            {{offer.startDate}} to {{offer.endDate}}
-          </div>
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-xs-7 col-sm-7 col-md-7">
+      <div class="card">
+        <h3>
+          <div class="card-header">{{offer.companyName}}</div>
+        </h3>
+        <div class="card-body">
+          <h5 class="card-title">{{offer.title}}</h5>
+          <p class="card-text">{{offer.description}}</p>
+          <h5><span class="badge rounded-pill bg-info text-dark">Salary: {{offer.salary}}€ {{offer.salaryType}}</span>
+          </h5>
+        </div>
+        <div class="card-footer text-center text-muted">
+          {{offer.startDate}} to {{offer.endDate}}
         </div>
       </div>
     </div>

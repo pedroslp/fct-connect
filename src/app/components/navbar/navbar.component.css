@@ -1,11 +1,3 @@
-.fa-arrow-right-to-bracket,
-.fa-user,
-.fa-arrow-right-from-bracket,
-.fa-address-card,
-.fa-list {
-  margin-right: 8px;
-}
-
 a.nav-item.nav-link.btn.btn-primary {
   color: #fff;
 }
@@ -21,11 +13,6 @@ a.profile {
 
 .container-fluid {
   margin: 0 11% 0 11%;
-}
-
-.navbar-toggler {
-  position: relative;
-  transition: 0.5s ease-in-out;
 }
 
 .navbar-toggler,

@@ -5,8 +5,7 @@ import { AuthService } from '../../../services/auth.service'
 
 @Component({
   selector: 'app-offers-list',
-  templateUrl: './offers-list.component.html',
-  styleUrls: ['./offers-list.component.css']
+  templateUrl: './offers-list.component.html'
 })
 export class OffersListComponent implements OnInit {
   public offers: OfferInterface | any = []

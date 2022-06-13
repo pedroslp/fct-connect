@@ -1,5 +1,17 @@
+
+
 .toast-top-right {
   top: 72px;
+}
+
+.fa-arrow-right-to-bracket,
+.fa-user,
+.fa-arrow-right-from-bracket,
+.fa-address-card,
+.fa-list,
+.fa-github,
+.fa-plus {
+  margin-right: 8px;
 }
 
 .btn-google {

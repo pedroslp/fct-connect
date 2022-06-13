@@ -1,17 +1,11 @@
-<section id="profile" class="container">
-  <div class="row mt-5">
-    <div class="offset-lg-4 col-lg-4 col-sm-6 col-12 main-section text-center card">
-      <div class="row">
-        <div class="col-lg-12 col-sm-12 col-12 profile-header"></div>
-      </div>
-      <div class="row user-details">
-        <div class="col-12">
-          <h5>Name: {{ user.name }}</h5>
-          <p>
-            Email: {{ user.email }}
-          </p>
-        </div>
-      </div>
+<section id="profile">
+  <div class="card col-xs-12 col-sm-6 col-md-4">
+    <div class="card-body text-center">
+      <h1 class="h3 mb-3 font-weight-normal">Profile</h1>
+      <h5>Name: {{ user.name }}</h5>
+      <p>
+        Email: {{ user.email }}
+      </p>
     </div>
   </div>
 </section>

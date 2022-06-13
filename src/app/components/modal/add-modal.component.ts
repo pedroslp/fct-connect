@@ -5,8 +5,7 @@ import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-add-modal',
-  templateUrl: './add-modal.component.html',
-  styleUrls: ['./add-modal.component.css']
+  templateUrl: './add-modal.component.html'
 })
 export class AddModalComponent implements OnInit {
   @ViewChild('closeModal') closeModal!: ElementRef

@@ -42,7 +42,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.env),
     AngularFireDatabaseModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
