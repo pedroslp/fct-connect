@@ -20,19 +20,19 @@ export class AddModalComponent implements OnInit {
   onSaveOffer(offerForm: NgForm): void {
     if (offerForm.value.id === undefined || offerForm.value.id === null || offerForm.value.id === '') {
       try {
-        if (offerForm.value.title != null && offerForm.value.startDate != null && offerForm.value.description != null && offerForm.value.salary != null) {
+        if (offerForm.value.title != null && offerForm.value.startDate != null && offerForm.value.description != null) {
           offerForm.value.userUid = this.userUid
           offerForm.value.companyName = this.companyName
           this.dataApi.addOffer(offerForm.value)
           offerForm.resetForm()
+          this.toast.success('Offer added successfully', 'Success')
+        } else {
+          this.toast.error('Please fill all the fields', 'Error')
         }
-        this.toast.success('Offer added successfully', 'Success', {
-          toastClass: 'toast'
-        })
+        offerForm.resetForm()
       } catch (error) {
-        this.toast.error('Error adding offer', 'Error', {
-          toastClass: 'toast'
-        })
+        this.toast.error('Error adding offer', 'Error')
+        offerForm.resetForm()
       }
     } else {
       try {
