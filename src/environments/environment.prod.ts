@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   env: {
     apiKey: "AIzaSyCWckP99dJUyIIxMkNOAy3N9ZSiubuS-TM",
-    authDomain: "fct-connect.vercel.app",
+    authDomain: "fct-connect.firebaseapp.com",
     projectId: "fct-connect",
     storageBucket: "fct-connect.appspot.com",
     messagingSenderId: "666882283618",

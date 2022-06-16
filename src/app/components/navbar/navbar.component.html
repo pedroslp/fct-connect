@@ -13,7 +13,7 @@
       <div class="navbar-nav ms-auto">
         <a class="nav-item nav-link" routerLink="/user/login" *ngIf="!isLogged"><i
             class="fa-solid fa-arrow-right-to-bracket"></i>Login</a>
-        <a class="nav-item nav-link" routerLink="/user/register" *ngIf="!isLogged"><i class="fa-solid fa-address-card"></i>Register</a>
+        <a class="nav-item nav-link" routerLink="/user/register" *ngIf="!isLogged"><i class="fa-solid fa-envelope"></i>Sign Up</a>
         <a href="#" class="nav-item nav-link profile" routerLink="/user/profile" *ngIf="isLogged"><i
             class="fa-solid fa-user"></i>Profile</a>
         <a href="#" class="nav-item nav-link btn btn-primary btn-logout" (click)="onLogout()" *ngIf="isLogged"><i
